@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory >
+		<property name="connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<property name="connection.url"> jdbc:mysql://localhost:3306/springtest</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">password</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="connection.pool_size">1</property>
+		
+		<!-- Enable HIbernates automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- Disable the second level cache -->
+		<!-- <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property> -->
+		
+		<!-- Enable the Second level cache -->
+		<property name="cache.use_second_level_cache"> true </property>
+		<property name="cache.use_query_cache"> true </property>
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		
+		<!-- Echo all executed sql to stdout -->
+		<property name="show_sql">true</property>
+		
+		<!-- Drop and recreate the database schema on startup -->
+		<property name = "hbm2ddl.auto">create</property> 
+		
+		<!-- Name the annotated entity class -->
+		<!-- <mapping class="com.learnHibernate.annotations.kaushik.model.UserDetails"/> -->
+		<!-- <mapping class="com.learnHibernate.annotations.kaushik.model.UserDetailsCollection"/> --> 
+		<!-- <mapping class="com.learnHibernate.annotations.kaushik.model.UserDetailsMapping"/>
+		<mapping class="com.learnHibernate.annotations.kaushik.model.Vehicle"/> -->
+		<mapping class="com.learnHibernate.annotations.kaushik.model.VehicleInheritance"/> 
+		<mapping class="com.learnHibernate.annotations.kaushik.model.TwoWheeler"/> 
+		<mapping class="com.learnHibernate.annotations.kaushik.model.FourWheeler"/> 
+		<mapping class="com.learnHibernate.annotations.kaushik.model.UserDetailsCRUD"/>
+		<mapping class="com.learnHibernate.annotations.kaushik.model.UserDetailsCriteria"/>
+		<mapping class="com.learnHibernate.annotations.kaushik.model.UserDetailsCache"/>
+		<mapping class="com.learnHibernate.annotations.kaushik.model.embedded.UserDetailsComposite"/>
+	</session-factory>
+	
+</hibernate-configuration>

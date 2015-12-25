@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.learnHibernate.model">
+
+	<class name="Orders" table="orders" dynamic-insert="true"
+		dynamic-update="true">
+		<id type="long" column="id">
+			<generator class="increment">
+			</generator>
+		</id>
+
+		<component name="weekDayContact" class="Contact">
+			<property name="recipient" type="string" column="weekday_recipient"></property>
+			<property name="phone" type="string" column="weekday_phone"></property>
+			<property name="address" type="string" column="weekday_address"></property>
+		</component>
+
+		<component name="holidayContact" class="Contact">
+			<property name="recipient" type="string" column="holiday_recipient"></property>
+			<property name="phone" type="string" column="holiday_phone"></property>
+			<property name="address" type="string" column="holiday_address"></property>
+		</component>
+
+	</class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.tdd.example.ArabicToRomanTest&apos; to &apos;RomanToArabicTest&apos;&#x0D;&#x0A;- Original project: &apos;FirstTDDProject&apos;&#x0D;&#x0A;- Original element: &apos;com.tdd.example.ArabicToRomanTest&apos;&#x0D;&#x0A;- Renamed element: &apos;com.tdd.example.RomanToArabicTest&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ArabicToRomanTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.tdd.example{ArabicToRomanTest.java[ArabicToRomanTest" matchStrategy="1" name="RomanToArabicTest" qualified="false" references="true" similarDeclarations="false" stamp="1434747985703" textual="false" version="1.0"/>
+</session>

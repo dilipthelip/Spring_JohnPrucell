@@ -1,0 +1,76 @@
+package com.learnHibernate.annotations.kaushik.model.embedded;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.Table;
+
+import com.learnHibernate.annotations.kaushik.model.UserDetailsCRUD;
+
+@Entity
+@IdClass(UserDetailsCompositePK.class)
+@Table(name="USER_DETAILS_COMPOSITE")
+public class UserDetailsComposite implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8148169636415942940L;
+	
+	private String city;
+	private String state;
+	
+	@Id private int id;
+	private String name;
+	
+	
+	/*private UserDetailsCompositePK userDetailsCompositePK;
+	*//**
+	 * @return the userDetailsCompositePK
+	 *//*
+	@EmbeddedId
+	public UserDetailsCompositePK getUserDetailsCompositePK() {
+		return userDetailsCompositePK;
+	}
+	*//**
+	 * @param userDetailsCompositePK the userDetailsCompositePK to set
+	 *//*
+	public void setUserDetailsCompositePK(
+			UserDetailsCompositePK userDetailsCompositePK) {
+		this.userDetailsCompositePK = userDetailsCompositePK;
+	}*/
+	/**
+	 * @return the city
+	 */
+	public String getCity() {
+		return city;
+	}
+	/**
+	 * @param city the city to set
+	 */
+	public void setCity(String city) {
+		this.city = city;
+	}
+	/**
+	 * @return the state
+	 */
+	public String getState() {
+		return state;
+	}
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	
+
+}

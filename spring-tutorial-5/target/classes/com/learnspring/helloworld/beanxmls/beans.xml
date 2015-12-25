@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+	<bean id="person" class="com.learnspring.helloworld.Person" scope="singleton"
+		init-method="onCreate" destroy-method="onDestroy" factory-method="getInstance" >
+		<constructor-arg name="id" type="int" value="11"></constructor-arg>
+		<constructor-arg name="name" type="String" value="Dilip"></constructor-arg>
+		<property name="taxId">
+			<value>111</value>
+		</property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+	<bean id="person2" class="com.learnspring.helloworld.Person"
+		factory-method="createPerson" factory-bean="personFactory">
+		<constructor-arg name="id" type="int" value="22"></constructor-arg>
+		<constructor-arg name="name" type="String" value="Dilip22"></constructor-arg>
+		<property name="address" ref="address"></property>
+	</bean>
+
+
+	<bean id="personFactory" class="com.learnspring.helloworld.PersonFactory">
+
+	</bean>
+
+	<bean id="address" class="com.learnspring.helloworld.Address">
+		<constructor-arg name="street" value="1340 high SiTe Drive"></constructor-arg>
+		<constructor-arg name="postCode" value="55121"></constructor-arg>
+	</bean>
+
+	<bean id="address2" class="com.learnspring.helloworld.Address"
+		p:street="1340 High Site Drive" p:postCode="55121">
+
+	</bean>
+
+	<!-- list: -->
+
+	<bean id="basket" class="com.learnspring.helloworld.list.Fruitbasket">
+		<constructor-arg name="name" value="Dilips Basket"></constructor-arg>
+		<constructor-arg name="fruits">
+			<set>
+				<value>
+					Apple
+				</value>
+				<value>
+					orange
+				</value>
+				<value>
+					Banana
+				</value>
+			</set>
+		</constructor-arg>
+
+		<constructor-arg name="map">
+			<map>
+				<entry key="D" value="Dilip"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	<!-- End List: -->
+
+	<!-- List Beans: -->
+
+	<bean id="jungle" class="com.learnspring.helloworld.list.Jungle">
+
+		<property name="animal" ref="lion1">
+			
+		</property>
+		<property name="animals">
+			<list>
+				<bean id="lion" class="com.learnspring.helloworld.list.Animal">
+					<property name="name" value="Lion"></property>
+					<property name="type" value="Cat"></property>
+				</bean>
+				<bean id="snake" class="com.learnspring.helloworld.list.Animal">
+					<property name="name" value="snake"></property>
+					<property name="type" value="Reptile"></property>
+
+				</bean>
+
+			</list>
+		</property>
+
+	</bean>
+	
+	<bean id="lion1" class="com.learnspring.helloworld.list.Animal">
+				<property name="name" value="innerLion"></property>
+				<property name="type" value="innerCat"></property>
+			</bean>
+	<!-- End List Beans: -->
+	
+	<!--  Maps -->
+	
+	<bean id="mapbean" class="com.learnspring.helloworld.map.MapBean">
+		<property name="inMap">
+			<props>
+				<prop key="Banana">Monkey</prop>
+				<prop key="Meat">Lion</prop>
+			</props>
+		</property>
+		<property name="animalMap">
+			<map>
+				<entry key="D" value-ref="lion1"></entry>
+			</map>
+		</property>
+	</bean>
+	<!-- End Maps -->
+</beans>
+

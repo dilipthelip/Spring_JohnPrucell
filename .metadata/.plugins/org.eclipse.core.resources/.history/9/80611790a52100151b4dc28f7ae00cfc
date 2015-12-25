@@ -1,0 +1,161 @@
+package com.learnHibernate.annotations.kaushik.model;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="USER_DETAILS")
+public class UserDetails {
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="USER_ID")
+	private int userId;
+	
+	@Column(name="USER_NAME")
+	private String userName;
+	
+	@Temporal(TemporalType.DATE)
+	private Date joinedDate;
+	
+	private String Address;
+	
+	@Lob
+	private String description;
+	
+	public UserDetails(){
+		
+	}
+	
+	/**
+	 * @param userName
+	 * @param joinedDate
+	 * @param address
+	 * @param description
+	 */
+	public UserDetails( String userName, Date joinedDate,
+			String address, String description) {
+		super();
+		this.userName = userName;
+		this.joinedDate = joinedDate;
+		Address = address;
+		this.description = description;
+	}
+	
+	
+
+	/**
+	 * @param userId
+	 * @param userName
+	 * @param joinedDate
+	 * @param address
+	 * @param description
+	 */
+	public UserDetails(int userId, String userName, Date joinedDate,
+			String address, String description) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.joinedDate = joinedDate;
+		Address = address;
+		this.description = description;
+	}
+
+
+
+	/**
+	 * @return the joinedDate
+	 */
+	public Date getJoinedDate() {
+		return joinedDate;
+	}
+
+
+	/**
+	 * @param joinedDate the joinedDate to set
+	 */
+	public void setJoinedDate(Date joinedDate) {
+		this.joinedDate = joinedDate;
+	}
+
+
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return Address;
+	}
+
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		Address = address;
+	}
+
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	/**
+	 * @return the userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	/**
+	 * @return the userName
+	 */
+	public String getUserName() {
+		return userName;
+	}
+	/**
+	 * @param userName the userName to set
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "UserDetails [userId=" + userId + ", userName=" + userName
+				+ ", joinedDate=" + joinedDate + ", Address=" + Address
+				+ ", description=" + description + "]";
+	}
+	
+	
+}

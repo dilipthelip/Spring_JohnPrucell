@@ -1,0 +1,14 @@
+package com.learnspring.web.test.tests;
+
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
+
+
+@ActiveProfiles("dev")
+@ContextConfiguration(locations={"classpath:com/learnspring/web/test/config/data.xml","classpath:com/learbspringmvc/configs/security-context.xml",
+"classpath:com/learbspringmvc/configs/dao-context.xml"})
+public class UserTests {
+
+
+
+}
